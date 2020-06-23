@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MICHAEL TSO, Environmental Data science">
+
+        <link rel="alternate"  href="https://cmtso.github.io/feeds/all.atom.xml" type="application/atom+xml" title="MICHAEL TSO Full Atom Feed"/>
+
+        <title>Using reticulate: troubleshooting tips // MICHAEL TSO // Environmental Data science</title>
+
+    <link href="http://localhost:8000/static/favicon.ico" rel="icon">
+
+    <link rel="stylesheet" href="https://cmtso.github.io/theme/css/pygments.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fitvids/1.0.1/jquery.fitvids.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".content").fitVids();
+        });
+    </script>
+</head>
+
+<body>
+    <div class="pure-g-r" id="layout">
+        <div class="sidebar pure-u">
+            <div class="cover-img" style="background-image: url('http://localhost:8000/static/bg/waterfall1.jpeg')">
+                <div class="cover-body">
+                    <header class="header">
+                        <hgroup>
+                            <img class="avatar" src="http://localhost:8000/static/me_elvanto.png">
+                            <h1 class="brand-main"><a href="https://cmtso.github.io">MICHAEL TSO</a></h1>
+                            <p class="tagline">Environmental Data science</p>
+                                <p class="links"><a href="https://cmtso.github.io/">About</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/cv">Curriculum Vitae</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/research">Research Highlights</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/thesis">Dissertation</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/publications">Publications</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/fieldwork">Field Excursions</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/blog">Blog</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/contact">Contact</a></p>
+                                <p class="social">
+                                    <a href="https://scholar.google.com/citations?user=SpbJC1IAAAAJ&hl=en", target="_blank">
+                                        <i class="icon-google-scholar" style="font-size: 32px;"></i>
+                                    </a>
+                                    <a href="http://www.researchgate.net/profile/Michael_Tso3", target="_blank">
+                                        <i class="icon-researchgate" style="font-size: 32px;"></i>
+                                    </a>
+                                    <a href=" https://orcid.org/0000-0002-2415-0826", target="_blank">
+                                        <i class="icon-orcid" style="font-size: 32px;"></i>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/cmtso", target="_blank">
+                                        <i class="icon-linkedin" style="font-size: 32px;"></i>
+                                    </a>
+                                    <a href="https://github.com/cmtso", target="_blank">
+                                        <i class="icon-github" style="font-size: 32px;"></i>
+                                    </a>
+                                </p>
+                        </hgroup>
+                    </header>
+                </div>
+            </div>
+        </div>
+    <div class="pure-u">
+        <div class="content">
+            <section class="post">
+                <header class="post-header">
+                    <h1><p>Using reticulate: troubleshooting tips</p></h1>
+                        <p class="post-meta">
+                            // under                                 <a class="post-category" href="https://cmtso.github.io/tag/python">python</a>
+                                <a class="post-category" href="https://cmtso.github.io/tag/r">R</a>
+                                <a class="post-category" href="https://cmtso.github.io/tag/reticulate">reticulate</a>
+                        </p>
+                </header>
+            </section>
+            <p><strong>reticulate</strong> is a R package by RStudio to allow seamless use of python codes in R. Although it works nicely, you may encounter some common issues when setting it up, especially when doing so on a virtual machine.</p>
+<h3>(1) Sourcing python</h3>
+<p>The very first thing is to check python is properly installed.</p>
+<div class="highlight"><pre><span></span><code><span class="n">py_discover_config</span><span class="p">()</span>
+</code></pre></div>
+
+
+<p>If <code>libpython</code> is missing, do this: </p>
+<div class="highlight"><pre><span></span><code>$ sudo apt-get install -y r-base python3 python3-dev python3-pip python3-ven python3-tk
+</code></pre></div>
+
+
+<h3>(2) Installing packages</h3>
+<div class="highlight"><pre><span></span><code><span class="n">use_python</span><span class="p">(</span><span class="ss">&quot;/usr/bin/python3.5&quot;</span><span class="p">)</span> <span class="o">#</span> <span class="n">point</span> <span class="n">this</span> <span class="k">to</span> <span class="k">where</span> <span class="n">your</span> <span class="n">python</span> <span class="n">executable</span> <span class="k">is</span>
+</code></pre></div>
+
+
+<p>You can create a virtual environment to install packages, say it's called "python_environment"</p>
+<div class="highlight"><pre><span></span><code><span class="nv">virtualenv_create</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">python_environment</span><span class="s2">&quot;</span><span class="ss">)</span> # <span class="nv">create</span> <span class="nv">a</span> <span class="nv">virtual</span> <span class="nv">environment</span> <span class="k">for</span> <span class="nv">reticulate</span>
+</code></pre></div>
+
+
+<p>Then you can installed packages</p>
+<div class="highlight"><pre><span></span><code><span class="n">virtualenv_install</span><span class="p">(</span><span class="ss">&quot;python_environment&quot;</span><span class="p">,</span> <span class="ss">&quot;matplotlib&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>You may also want to check what virtual environments are there, and the path to a particular environment. </p>
+<div class="highlight"><pre><span></span><code><span class="n">virtualenv_list</span><span class="p">()</span>
+<span class="n">virtualenv_python</span><span class="p">(</span><span class="s1">&#39;python_environment&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>To use a environment in your code, include <code>use_virtualenv("python_environment",required = T)</code></p>
+<h3>(3) Matplotlib</h3>
+<p>Unfortunately, not all Matplotlib backends work for reticulate. Make sure you put <code>plt.switch_backend('agg')</code> in your python code.</p>
+<p>When using this backend, some programs may be missing. You need to install them in the terminal.</p>
+<div class="highlight"><pre><span></span><code>$ sudo apt install texlive-fonts-recommended texlive-fonts-extra
+$ sudo apt-get install dvipng
+</code></pre></div>
+
+
+<p>https://github.com/rstudio/reticulate/issues/470
+https://stackoverflow.com/questions/54477891/filenotfounderror-errno-2-no-such-file-or-directory-latex-latex-python</p>
+<h3>Checking if everything works</h3>
+<p>After loading <strong>reticulate</strong> in R, try running below after typing <code>repl_python()</code>, or as a python code chunk in a R markdown document.</p>
+<div class="highlight"><pre><span></span><code><span class="sb">``</span><span class="err">`</span><span class="p">{</span><span class="n">python</span><span class="p">}</span>
+<span class="n">use_python</span><span class="p">(</span><span class="s2">&quot;/usr/bin/python3.5&quot;</span><span class="p">)</span> <span class="c1"># point this to where your python executable is</span>
+<span class="n">use_virtualenv</span><span class="p">(</span><span class="s2">&quot;python_environment&quot;</span><span class="p">,</span><span class="n">required</span> <span class="o">=</span> <span class="n">T</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">switch_backend</span><span class="p">(</span><span class="s1">&#39;agg&#39;</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="kp">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="kp">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+
+
+<p>```</p>
+<p>// <a href="https://vimeo.com/3514904" title="Little red riding hood - Click to Watch!"><img alt="Little red riding hood" src="http://i.imgur.com/7YTMFQp.png"></a></p>
+            <a href="#" class="go-top">Go Top</a>
+<footer class="footer">
+    <p align="right">&copy; MICHAEL TSO &ndash;
+        Built with <a target="_blank" href="https://github.com/PurePelicanTheme/pure-single">Pure Theme</a>
+        for <a target="_blank" href="http://blog.getpelican.com/">Pelican</a> - Last updated on <a target="_blank" href=https://github.com/cmtso/website/commit/59bcdcb9442aa478c7544e9f95807e8abbf78050>2020-06-23</a>.
+    </p>
+</footer>        </div>
+    </div>
+    </div>
+    <script>
+        var $top = $('.go-top');
+
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $top.fadeIn(200);
+            } else {
+                $top.fadeOut(200);
+            }
+        });
+
+        // Animate the scroll to top
+        $top.click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop: 0}, 300);
+        })
+
+        // Makes sure that the href="#" attached to the <a> elements
+        // don't scroll you back up the page.
+        $('body').on('click', 'a[href="#"]', function(event) {
+            event.preventDefault();
+        });
+    </script>
+
+</body>
+</html>
