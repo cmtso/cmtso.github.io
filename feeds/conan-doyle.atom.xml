@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>MICHAEL TSO - Conan Doyle</title><link href="https://cmtso.github.io/" rel="alternate"></link><link href="https://cmtso.github.io/feeds/conan-doyle.atom.xml" rel="self"></link><id>https://cmtso.github.io/</id><updated>2010-10-04T18:40:00+01:00</updated><subtitle>A personal blog.</subtitle><entry><title>My super title</title><link href="https://cmtso.github.io/posts/my-super-post" rel="alternate"></link><published>2010-10-03T10:20:00+01:00</published><updated>2010-10-04T18:40:00+01:00</updated><author><name>Alexis Metaireau</name></author><id>tag:cmtso.github.io,2010-10-03:/posts/my-super-post</id><summary type="html">&lt;p class="first last"&gt;Short version for index and feeds&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;This is the content of my super blog post.&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Pelican is a static site generator.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;There are two ways to specify the identifier:&lt;/p&gt;
+&lt;blockquote&gt;
+:::python
+print(&amp;quot;The triple-colon syntax will &lt;em&gt;not&lt;/em&gt; show line numbers.&amp;quot;)&lt;/blockquote&gt;
+&lt;p&gt;To display line numbers, use a path-less shebang instead of colons:&lt;/p&gt;
+&lt;blockquote&gt;
+#!python
+print(&amp;quot;The path-less shebang syntax &lt;em&gt;will&lt;/em&gt; show line numbers.&amp;quot;)&lt;/blockquote&gt;
+</content><category term="yeah"></category><category term="thats"></category><category term="awesome"></category></entry></feed>
