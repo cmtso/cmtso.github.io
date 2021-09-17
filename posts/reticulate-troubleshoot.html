@@ -9,9 +9,6 @@
 
         <title>Using reticulate: troubleshooting tips // MICHAEL TSO // Environmental Data science</title>
 
-<link rel="stylesheet" href="https://cmtso.github.io/theme/css/pure.css">
-<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cmtso.github.io/theme/style.css">
     <link href="https://cmtso.github.io/static/favicon.ico" rel="icon">
 
     <link rel="stylesheet" href="https://cmtso.github.io/theme/css/pygments.css">
@@ -78,35 +75,29 @@
             <p><strong>reticulate</strong> is a R package by RStudio to allow seamless use of python codes in R. Although it works nicely, you may encounter some common issues when setting it up, especially when doing so on a virtual machine.</p>
 <h3>(1) Sourcing python</h3>
 <p>The very first thing is to check python is properly installed.</p>
-<div class="highlight"><pre><span></span><code><span class="err">py_discover_config()</span>
+<div class="highlight"><pre><span></span><code>py_discover_config()
 </code></pre></div>
-
 
 <p>If <code>libpython</code> is missing, do this: </p>
 <div class="highlight"><pre><span></span><code>$ sudo apt-get install -y r-base python3 python3-dev python3-pip python3-ven python3-tk
 </code></pre></div>
 
-
 <h3>(2) Installing packages</h3>
-<div class="highlight"><pre><span></span><code><span class="err">use_python(&quot;/usr/bin/python3.5&quot;) # point this to where your python executable is</span>
+<div class="highlight"><pre><span></span><code>use_python(&quot;/usr/bin/python3.5&quot;) # point this to where your python executable is
 </code></pre></div>
-
 
 <p>You can create a virtual environment to install packages, say it's called "python_environment"</p>
-<div class="highlight"><pre><span></span><code><span class="err">virtualenv_create(&quot;python_environment&quot;) # create a virtual environment for reticulate</span>
+<div class="highlight"><pre><span></span><code><span class="nv">virtualenv_create</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">python_environment</span><span class="s2">&quot;</span><span class="ss">)</span> # <span class="nv">create</span> <span class="nv">a</span> <span class="nv">virtual</span> <span class="nv">environment</span> <span class="k">for</span> <span class="nv">reticulate</span>
 </code></pre></div>
-
 
 <p>Then you can installed packages</p>
-<div class="highlight"><pre><span></span><code><span class="err">virtualenv_install(&quot;python_environment&quot;, &quot;matplotlib&quot;)</span>
+<div class="highlight"><pre><span></span><code>virtualenv_install(&quot;python_environment&quot;, &quot;matplotlib&quot;)
 </code></pre></div>
-
 
 <p>You may also want to check what virtual environments are there, and the path to a particular environment. </p>
-<div class="highlight"><pre><span></span><code><span class="err">virtualenv_list()</span>
-<span class="err">virtualenv_python(&#39;python_environment&#39;)</span>
+<div class="highlight"><pre><span></span><code>virtualenv_list()
+virtualenv_python(&#39;python_environment&#39;)
 </code></pre></div>
-
 
 <p>To use a environment in your code, include <code>use_virtualenv("python_environment",required = T)</code></p>
 <h3>(3) Matplotlib</h3>
@@ -115,7 +106,6 @@
 <div class="highlight"><pre><span></span><code>$ sudo apt install texlive-fonts-recommended texlive-fonts-extra
 $ sudo apt-get install dvipng
 </code></pre></div>
-
 
 <p>https://github.com/rstudio/reticulate/issues/470
 https://stackoverflow.com/questions/54477891/filenotfounderror-errno-2-no-such-file-or-directory-latex-latex-python</p>
@@ -133,13 +123,22 @@ https://stackoverflow.com/questions/54477891/filenotfounderror-errno-2-no-such-f
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="space-1.jpg" src="http://www.storywarren.com/wp-content/uploads/2016/09/space-1.jpg"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: center;">*Centered text*</p>
 
-<p>| <img alt="space-1.jpg" src="http://www.storywarren.com/wp-content/uploads/2016/09/space-1.jpg"> | 
-|:--:| 
-<p style="text-align: center;"><em>Centered text</em></p></p>
 <p><a href="https://vimeo.com/3514904" title="Little red riding hood - Click to Watch!"><img alt="Little red riding hood" src="http://i.imgur.com/7YTMFQp.png"></a></p>
 <!-- Slideshow container -->
-
 <div class="slideshow-container">
 
   <!-- Full-width images with number and caption text -->
@@ -165,10 +164,8 @@ https://stackoverflow.com/questions/54477891/filenotfounderror-errno-2-no-such-f
   <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
   <a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>
-
 <p><br></p>
 <!-- The dots/circles -->
-
 <div style="text-align:center">
   <span class="dot" onclick="currentSlide(1)"></span>
   <span class="dot" onclick="currentSlide(2)"></span>
@@ -276,7 +273,7 @@ https://stackoverflow.com/questions/54477891/filenotfounderror-errno-2-no-such-f
 <footer class="footer">
     <p align="right">&copy; MICHAEL TSO &ndash;
         Built with <a target="_blank" href="https://github.com/PurePelicanTheme/pure-single">Pure Theme</a>
-        for <a target="_blank" href="http://blog.getpelican.com/">Pelican</a> - Last updated on <a target="_blank" href=>2021-01-15</a>.
+        for <a target="_blank" href="http://blog.getpelican.com/">Pelican</a> - Last updated on <a target="_blank" href=>2021-09-17</a>.
     </p>
 </footer>        </div>
     </div>
