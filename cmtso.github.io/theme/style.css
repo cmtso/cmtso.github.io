@@ -1,0 +1,204 @@
+@font-face {
+  font-family: 'own';
+  src:  url('fonts/own.eot?1yxhoa');
+  src:  url('fonts/own.eot?1yxhoa#iefix') format('embedded-opentype'),
+    url('fonts/own.ttf?1yxhoa') format('truetype'),
+    url('fonts/own.woff?1yxhoa') format('woff'),
+    url('fonts/own.svg?1yxhoa#own') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'own' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-google-scholar:before {
+  content: "\e900";
+}
+.icon-google-scholar-square:before {
+  content: "\e901";
+}
+.icon-researchgate:before {
+  content: "\e902";
+}
+.icon-researchgate-quare:before {
+  content: "\e903";
+}
+.icon-orcid:before {
+  content: "\e906";
+}
+.icon-orcid-square:before {
+  content: "\e907";
+}
+.icon-openaccess:before {
+  content: "\e922";
+}
+.icon-openaccess-square:before {
+  content: "\e923";
+}
+.icon-doi:before {
+  content: "\e928";
+}
+.icon-doi-square:before {
+  content: "\e929";
+}
+.icon-envelope-o:before {
+  content: "\f003";
+}
+.icon-user:before {
+  content: "\f007";
+}
+.icon-book:before {
+  content: "\f02d";
+}
+.icon-image:before {
+  content: "\f03e";
+}
+.icon-photo:before {
+  content: "\f03e";
+}
+.icon-picture-o:before {
+  content: "\f03e";
+}
+.icon-info-circle:before {
+  content: "\f05a";
+}
+.icon-exclamation-triangle:before {
+  content: "\f071";
+}
+.icon-warning:before {
+  content: "\f071";
+}
+.icon-calendar:before {
+  content: "\f073";
+}
+.icon-twitter-square:before {
+  content: "\f081";
+}
+.icon-linkedin-square:before {
+  content: "\f08c";
+}
+.icon-external-link:before {
+  content: "\f08e";
+}
+.icon-sign-in:before {
+  content: "\f090";
+}
+.icon-github-square:before {
+  content: "\f092";
+}
+.icon-twitter:before {
+  content: "\f099";
+}
+.icon-facebook:before {
+  content: "\f09a";
+}
+.icon-facebook-f:before {
+  content: "\f09a";
+}
+.icon-github:before {
+  content: "\f09b";
+}
+.icon-feed:before {
+  content: "\f09e";
+}
+.icon-rss:before {
+  content: "\f09e";
+}
+.icon-group:before {
+  content: "\f0c0";
+}
+.icon-users:before {
+  content: "\f0c0";
+}
+.icon-flask:before {
+  content: "\f0c3";
+}
+.icon-paperclip:before {
+  content: "\f0c6";
+}
+.icon-envelope:before {
+  content: "\f0e0";
+}
+.icon-linkedin:before {
+  content: "\f0e1";
+}
+.icon-file-text-o:before {
+  content: "\f0f6";
+}
+.icon-github-alt:before {
+  content: "\f113";
+}
+.icon-rss-square:before {
+  content: "\f143";
+}
+.icon-file:before {
+  content: "\f15b";
+}
+.icon-file-text:before {
+  content: "\f15c";
+}
+.icon-xing:before {
+  content: "\f168";
+}
+.icon-xing-square:before {
+  content: "\f169";
+}
+.icon-linux:before {
+  content: "\f17c";
+}
+.icon-bank:before {
+  content: "\f19c";
+}
+.icon-institution:before {
+  content: "\f19c";
+}
+.icon-university:before {
+  content: "\f19c";
+}
+.icon-graduation-cap:before {
+  content: "\f19d";
+}
+.icon-mortar-board:before {
+  content: "\f19d";
+}
+.icon-file-pdf-o:before {
+  content: "\f1c1";
+}
+.icon-file-image-o:before {
+  content: "\f1c5";
+}
+.icon-file-photo-o:before {
+  content: "\f1c5";
+}
+.icon-file-picture-o:before {
+  content: "\f1c5";
+}
+.icon-file-archive-o:before {
+  content: "\f1c6";
+}
+.icon-file-zip-o:before {
+  content: "\f1c6";
+}
+.icon-file-code-o:before {
+  content: "\f1c9";
+}
+.icon-facebook-official:before {
+  content: "\f230";
+}
+.icon-gitlab:before {
+  content: "\f296";
+}
+

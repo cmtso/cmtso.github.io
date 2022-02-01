@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MICHAEL TSO, Environmental Data science">
+
+        <link rel="alternate"  href="https://cmtso.github.io/feeds/all.atom.xml" type="application/atom+xml" title="MICHAEL TSO Full Atom Feed"/>
+
+        <title>Visualizing bird samples with R Shiny and leaflet // MICHAEL TSO // Environmental Data science</title>
+
+    <link href="https://cmtso.github.io/static/favicon.ico" rel="icon">
+
+    <link rel="stylesheet" href="https://cmtso.github.io/theme/css/pygments.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fitvids/1.0.1/jquery.fitvids.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".content").fitVids();
+        });
+    </script>
+</head>
+
+<body>
+    <div class="pure-g-r" id="layout">
+        <div class="sidebar pure-u">
+            <div class="cover-img" style="background-image: url('https://cmtso.github.io/static/bg/waterfall1.jpeg')">
+                <div class="cover-body">
+                    <header class="header">
+                        <hgroup>
+                            <img class="avatar" src="https://cmtso.github.io/static/me_elvanto.png">
+                            <h1 class="brand-main"><a href="https://cmtso.github.io">MICHAEL TSO</a></h1>
+                            <p class="tagline">Environmental Data science</p>
+                                <p class="links"><a href="https://cmtso.github.io/">About</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/cv">Curriculum Vitae</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/thesis">Dissertation</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/publications">Publications</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/fieldwork">Field Excursions</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/blog">Blog</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/contact">Contact</a></p>
+                                <p class="social">
+                                    <a href="https://scholar.google.com/citations?user=SpbJC1IAAAAJ&hl=en", target="_blank">
+                                        <i class="icon-google-scholar" style="font-size: 32px;"></i>
+                                    </a>
+                                    <a href="http://www.researchgate.net/profile/Michael_Tso3", target="_blank">
+                                        <i class="icon-researchgate" style="font-size: 32px;"></i>
+                                    </a>
+                                    <a href=" https://orcid.org/0000-0002-2415-0826", target="_blank">
+                                        <i class="icon-orcid" style="font-size: 32px;"></i>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/cmtso", target="_blank">
+                                        <i class="icon-linkedin" style="font-size: 32px;"></i>
+                                    </a>
+                                    <a href="https://github.com/cmtso", target="_blank">
+                                        <i class="icon-github" style="font-size: 32px;"></i>
+                                    </a>
+                                </p>
+                        </hgroup>
+                    </header>
+                </div>
+            </div>
+        </div>
+    <div class="pure-u">
+        <div class="content">
+            <section class="post">
+                <header class="post-header">
+                    <h1><p>Visualizing bird samples with R Shiny and leaflet</p></h1>
+                        <p class="post-meta">
+                            // under                                 <a class="post-category" href="https://cmtso.github.io/tag/shiny">shiny</a>
+                                <a class="post-category" href="https://cmtso.github.io/tag/r">R</a>
+                                <a class="post-category" href="https://cmtso.github.io/tag/leaflet">leaflet</a>
+                                <a class="post-category" href="https://cmtso.github.io/tag/pbms">PBMS</a>
+                        </p>
+                </header>
+            </section>
+            <p><strong>leaflet</strong> is a very versatile java script library for interactive maps. It is also a great and free alternative to Google Maps, where many of the advanced APIs are not free. Being hooked to R as a package, it is super easy to use and it's my go-to package when I am producing any maps. One application that is of interest is to show the location of the bird samples we have received through the <a href="https://pbms.ceh.ac.uk/">UK Predatory Bird Monitoring Scheme</a>.</p>
+<p>At UKCEH, I am working on a R <strong>Shiny</strong> app that would enable even more customerisation in such interactive maps. This is a quick app that I quickly put together. More development is ongoing to build on this and to give it a lot more analytics capabilities. Stay tuned!</p>
+<p>Check out the app here:</p>
+<iframe src="https://statetag-pbmsdemo.datalabs.ceh.ac.uk/" width="100%" height="700" style="border:none;">
+</iframe>
+            <a href="#" class="go-top">Go Top</a>
+<footer class="footer">
+    <p align="right">&copy; MICHAEL TSO &ndash;
+        Built with <a target="_blank" href="https://github.com/PurePelicanTheme/pure-single">Pure Theme</a>
+        for <a target="_blank" href="http://blog.getpelican.com/">Pelican</a> - Last updated on <a target="_blank" href=>2021-09-17</a>.
+    </p>
+</footer>        </div>
+    </div>
+    </div>
+    <script>
+        var $top = $('.go-top');
+
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $top.fadeIn(200);
+            } else {
+                $top.fadeOut(200);
+            }
+        });
+
+        // Animate the scroll to top
+        $top.click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop: 0}, 300);
+        })
+
+        // Makes sure that the href="#" attached to the <a> elements
+        // don't scroll you back up the page.
+        $('body').on('click', 'a[href="#"]', function(event) {
+            event.preventDefault();
+        });
+    </script>
+
+</body>
+</html>

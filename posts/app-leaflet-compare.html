@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MICHAEL TSO, Environmental Data science">
+
+        <link rel="alternate"  href="https://cmtso.github.io/feeds/all.atom.xml" type="application/atom+xml" title="MICHAEL TSO Full Atom Feed"/>
+
+        <title>Making a Shiny app with synced leaflet views // MICHAEL TSO // Environmental Data science</title>
+
+    <link href="https://cmtso.github.io/static/favicon.ico" rel="icon">
+
+    <link rel="stylesheet" href="https://cmtso.github.io/theme/css/pygments.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fitvids/1.0.1/jquery.fitvids.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".content").fitVids();
+        });
+    </script>
+</head>
+
+<body>
+    <div class="pure-g-r" id="layout">
+        <div class="sidebar pure-u">
+            <div class="cover-img" style="background-image: url('https://cmtso.github.io/static/bg/waterfall1.jpeg')">
+                <div class="cover-body">
+                    <header class="header">
+                        <hgroup>
+                            <img class="avatar" src="https://cmtso.github.io/static/me_elvanto.png">
+                            <h1 class="brand-main"><a href="https://cmtso.github.io">MICHAEL TSO</a></h1>
+                            <p class="tagline">Environmental Data science</p>
+                                <p class="links"><a href="https://cmtso.github.io/">About</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/cv">Curriculum Vitae</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/thesis">Dissertation</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/publications">Publications</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/fieldwork">Field Excursions</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/blog">Blog</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/contact">Contact</a></p>
+                                <p class="social">
+                                    <a href="https://scholar.google.com/citations?user=SpbJC1IAAAAJ&hl=en", target="_blank">
+                                        <i class="icon-google-scholar" style="font-size: 32px;"></i>
+                                    </a>
+                                    <a href="http://www.researchgate.net/profile/Michael_Tso3", target="_blank">
+                                        <i class="icon-researchgate" style="font-size: 32px;"></i>
+                                    </a>
+                                    <a href=" https://orcid.org/0000-0002-2415-0826", target="_blank">
+                                        <i class="icon-orcid" style="font-size: 32px;"></i>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/cmtso", target="_blank">
+                                        <i class="icon-linkedin" style="font-size: 32px;"></i>
+                                    </a>
+                                    <a href="https://github.com/cmtso", target="_blank">
+                                        <i class="icon-github" style="font-size: 32px;"></i>
+                                    </a>
+                                </p>
+                        </hgroup>
+                    </header>
+                </div>
+            </div>
+        </div>
+    <div class="pure-u">
+        <div class="content">
+            <section class="post">
+                <header class="post-header">
+                    <h1><p>Making a Shiny app with synced leaflet views</p></h1>
+                        <p class="post-meta">
+                            // under                                 <a class="post-category" href="https://cmtso.github.io/tag/r">R</a>
+                                <a class="post-category" href="https://cmtso.github.io/tag/raster">raster</a>
+                                <a class="post-category" href="https://cmtso.github.io/tag/netcdf">netcdf</a>
+                                <a class="post-category" href="https://cmtso.github.io/tag/shiny">Shiny</a>
+                                <a class="post-category" href="https://cmtso.github.io/tag/app">app</a>
+                        </p>
+                </header>
+            </section>
+            <p><strong>leaflet.js</strong> is a </p>
+<p>The <strong>leaflet</strong> R package by RStudio to allow seamless use of leaflet.js in R codes and <strong>Shiny</strong> web apps, as I have shown in the PBMS webapp. But how can we help users compare two (or more) maps, especially when they want to zoom in to look at the details.</p>
+<p>Two new R pakcages <strong>leaflet.mini.charts</strong> and <strong>manipulateWidget</strong> extends the functionality of <strong>leaflet</strong> to allow syncing of two or more leaflet outputs by simply typing this command:</p>
+<div class="highlight"><pre><span></span><code>combineWidgets(mymap1, mymap2, ncol = 2)
+</code></pre></div>
+
+<p>| <img alt="screenshot" src="content/articles/leaflet2.PNG"> |</p>
+<p>You can run a live demo here: <a href="https://moisture-leaflet2min.datalabs.ceh.ac.uk/">https://moisture-leaflet2min.datalabs.ceh.ac.uk/</a></p>
+<p>You can see the code of a minimal example in the <a href="https://gist.github.com/cmtso/3d7d9dea536d46fd6d8f9fd812417da9">gist</a> here:</p>
+<script src="https://gist.github.com/cmtso/3d7d9dea536d46fd6d8f9fd812417da9.js"></script>
+            <a href="#" class="go-top">Go Top</a>
+<footer class="footer">
+    <p align="right">&copy; MICHAEL TSO &ndash;
+        Built with <a target="_blank" href="https://github.com/PurePelicanTheme/pure-single">Pure Theme</a>
+        for <a target="_blank" href="http://blog.getpelican.com/">Pelican</a> - Last updated on <a target="_blank" href=>2022-02-01</a>.
+    </p>
+</footer>        </div>
+    </div>
+    </div>
+    <script>
+        var $top = $('.go-top');
+
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $top.fadeIn(200);
+            } else {
+                $top.fadeOut(200);
+            }
+        });
+
+        // Animate the scroll to top
+        $top.click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop: 0}, 300);
+        })
+
+        // Makes sure that the href="#" attached to the <a> elements
+        // don't scroll you back up the page.
+        $('body').on('click', 'a[href="#"]', function(event) {
+            event.preventDefault();
+        });
+    </script>
+
+</body>
+</html>

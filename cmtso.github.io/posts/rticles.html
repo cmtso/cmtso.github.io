@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MICHAEL TSO, Environmental Data science">
+
+        <link rel="alternate"  href="https://cmtso.github.io/feeds/all.atom.xml" type="application/atom+xml" title="MICHAEL TSO Full Atom Feed"/>
+
+        <title>Write an academic paper in R? // MICHAEL TSO // Environmental Data science</title>
+
+    <link href="https://cmtso.github.io/static/favicon.ico" rel="icon">
+
+    <link rel="stylesheet" href="https://cmtso.github.io/theme/css/pygments.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fitvids/1.0.1/jquery.fitvids.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".content").fitVids();
+        });
+    </script>
+</head>
+
+<body>
+    <div class="pure-g-r" id="layout">
+        <div class="sidebar pure-u">
+            <div class="cover-img" style="background-image: url('https://cmtso.github.io/static/bg/waterfall1.jpeg')">
+                <div class="cover-body">
+                    <header class="header">
+                        <hgroup>
+                            <img class="avatar" src="https://cmtso.github.io/static/me_elvanto.png">
+                            <h1 class="brand-main"><a href="https://cmtso.github.io">MICHAEL TSO</a></h1>
+                            <p class="tagline">Environmental Data science</p>
+                                <p class="links"><a href="https://cmtso.github.io/">About</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/cv">Curriculum Vitae</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/thesis">Dissertation</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/publications">Publications</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/fieldwork">Field Excursions</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/blog">Blog</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/contact">Contact</a></p>
+                                <p class="social">
+                                    <a href="https://scholar.google.com/citations?user=SpbJC1IAAAAJ&hl=en", target="_blank">
+                                        <i class="icon-google-scholar" style="font-size: 32px;"></i>
+                                    </a>
+                                    <a href="http://www.researchgate.net/profile/Michael_Tso3", target="_blank">
+                                        <i class="icon-researchgate" style="font-size: 32px;"></i>
+                                    </a>
+                                    <a href=" https://orcid.org/0000-0002-2415-0826", target="_blank">
+                                        <i class="icon-orcid" style="font-size: 32px;"></i>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/cmtso", target="_blank">
+                                        <i class="icon-linkedin" style="font-size: 32px;"></i>
+                                    </a>
+                                    <a href="https://github.com/cmtso", target="_blank">
+                                        <i class="icon-github" style="font-size: 32px;"></i>
+                                    </a>
+                                </p>
+                        </hgroup>
+                    </header>
+                </div>
+            </div>
+        </div>
+    <div class="pure-u">
+        <div class="content">
+            <section class="post">
+                <header class="post-header">
+                    <h1><p>Write an academic paper in R?</p></h1>
+                        <p class="post-meta">
+                            // under                                 <a class="post-category" href="https://cmtso.github.io/tag/r">R</a>
+                                <a class="post-category" href="https://cmtso.github.io/tag/latex">LaTex</a>
+                        </p>
+                </header>
+            </section>
+            <p>R has become a very nice ecosystems that is not limited to programming or analysis but the full web and editing experience. Have you worried that you don't know enough LaTex and Microsoft Word drives you crazy when writing acadmic papers. Well a very nice option is to take advantage of R Markdown and the rticles R package. The latter comes with lots of templates for popular acadmic journals, which essentially turn them into the required LaTex format for you?</p>
+<h1>What about citations?</h1>
+<p>You can do <code>@bibkey</code> as you normally would for citation in LaTex using BibTex. Put all your BibTex entries in a .bib file.</p>
+<h1>Not just LaTex?</h1>
+<p>R Markdown utilizes 'pandoc' which means it can turn into other document formats such as HTML, Word and others. A cool use case here is the R Journal web document. R Journal doesn't use a publishing house so it compiles the articles themselves. I can simply compile my article in R markdown with the ouput option <code>rjtools::rjournal_web_article</code>. See my example <a href="https://cmtso.github.io/RJsandboxweb/sandbox">here</a>.</p>
+<h1>What about track changes?</h1>
+<p>You can make use of the <a href="https://3142.nl/latex-diff/">online latexdiff tool</a> if you have two versions of the R-generated LaTex file (.tex). Then you can just run the diff.tex file with the journal latex template. It's probably easiest to run it on <a href="https://www.overleaf.com/">Overleaf</a>. Don't forget to define the latexdiff commands in your LaTex files. There's an <a href="">latexdiffr</a> package which essentially make this all seamlessly done within R, but I have trouble getting it to work as of today.</p>
+            <a href="#" class="go-top">Go Top</a>
+<footer class="footer">
+    <p align="right">&copy; MICHAEL TSO &ndash;
+        Built with <a target="_blank" href="https://github.com/PurePelicanTheme/pure-single">Pure Theme</a>
+        for <a target="_blank" href="http://blog.getpelican.com/">Pelican</a> - Last updated on <a target="_blank" href=>2021-09-17</a>.
+    </p>
+</footer>        </div>
+    </div>
+    </div>
+    <script>
+        var $top = $('.go-top');
+
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $top.fadeIn(200);
+            } else {
+                $top.fadeOut(200);
+            }
+        });
+
+        // Animate the scroll to top
+        $top.click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop: 0}, 300);
+        })
+
+        // Makes sure that the href="#" attached to the <a> elements
+        // don't scroll you back up the page.
+        $('body').on('click', 'a[href="#"]', function(event) {
+            event.preventDefault();
+        });
+    </script>
+
+</body>
+</html>

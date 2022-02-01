@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MICHAEL TSO, Environmental Data science">
+
+        <link rel="alternate"  href="https://cmtso.github.io/feeds/all.atom.xml" type="application/atom+xml" title="MICHAEL TSO Full Atom Feed"/>
+
+        <title>Using reticulate: troubleshooting tips // MICHAEL TSO // Environmental Data science</title>
+
+    <link href="https://cmtso.github.io/static/favicon.ico" rel="icon">
+
+    <link rel="stylesheet" href="https://cmtso.github.io/theme/css/pygments.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fitvids/1.0.1/jquery.fitvids.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".content").fitVids();
+        });
+    </script>
+</head>
+
+<body>
+    <div class="pure-g-r" id="layout">
+        <div class="sidebar pure-u">
+            <div class="cover-img" style="background-image: url('https://cmtso.github.io/static/bg/waterfall1.jpeg')">
+                <div class="cover-body">
+                    <header class="header">
+                        <hgroup>
+                            <img class="avatar" src="https://cmtso.github.io/static/me_elvanto.png">
+                            <h1 class="brand-main"><a href="https://cmtso.github.io">MICHAEL TSO</a></h1>
+                            <p class="tagline">Environmental Data science</p>
+                                <p class="links"><a href="https://cmtso.github.io/">About</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/cv">Curriculum Vitae</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/thesis">Dissertation</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/publications">Publications</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/fieldwork">Field Excursions</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/blog">Blog</a></p>
+                                <p class="links"><a href="https://cmtso.github.io/contact">Contact</a></p>
+                                <p class="social">
+                                    <a href="https://scholar.google.com/citations?user=SpbJC1IAAAAJ&hl=en", target="_blank">
+                                        <i class="icon-google-scholar" style="font-size: 32px;"></i>
+                                    </a>
+                                    <a href="http://www.researchgate.net/profile/Michael_Tso3", target="_blank">
+                                        <i class="icon-researchgate" style="font-size: 32px;"></i>
+                                    </a>
+                                    <a href=" https://orcid.org/0000-0002-2415-0826", target="_blank">
+                                        <i class="icon-orcid" style="font-size: 32px;"></i>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/cmtso", target="_blank">
+                                        <i class="icon-linkedin" style="font-size: 32px;"></i>
+                                    </a>
+                                    <a href="https://github.com/cmtso", target="_blank">
+                                        <i class="icon-github" style="font-size: 32px;"></i>
+                                    </a>
+                                </p>
+                        </hgroup>
+                    </header>
+                </div>
+            </div>
+        </div>
+    <div class="pure-u">
+        <div class="content">
+            <section class="post">
+                <header class="post-header">
+                    <h1><p>Using reticulate: troubleshooting tips</p></h1>
+                        <p class="post-meta">
+                            // under                                 <a class="post-category" href="https://cmtso.github.io/tag/python">python</a>
+                                <a class="post-category" href="https://cmtso.github.io/tag/r">R</a>
+                                <a class="post-category" href="https://cmtso.github.io/tag/reticulate">reticulate</a>
+                        </p>
+                </header>
+            </section>
+            <p><strong>reticulate</strong> is a R package by RStudio to allow seamless use of python codes in R. Although it works nicely, you may encounter some common issues when setting it up, especially when doing so on a virtual machine.</p>
+<h3>(1) Sourcing python</h3>
+<p>The very first thing is to check python is properly installed.</p>
+<div class="highlight"><pre><span></span><code>py_discover_config()
+</code></pre></div>
+
+<p>If <code>libpython</code> is missing, do this: </p>
+<div class="highlight"><pre><span></span><code>$ sudo apt-get install -y r-base python3 python3-dev python3-pip python3-ven python3-tk
+</code></pre></div>
+
+<h3>(2) Installing packages</h3>
+<div class="highlight"><pre><span></span><code>use_python(&quot;/usr/bin/python3.5&quot;) # point this to where your python executable is
+</code></pre></div>
+
+<p>You can create a virtual environment to install packages, say it's called "python_environment"</p>
+<div class="highlight"><pre><span></span><code><span class="nv">virtualenv_create</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">python_environment</span><span class="s2">&quot;</span><span class="ss">)</span> # <span class="nv">create</span> <span class="nv">a</span> <span class="nv">virtual</span> <span class="nv">environment</span> <span class="k">for</span> <span class="nv">reticulate</span>
+</code></pre></div>
+
+<p>Then you can installed packages</p>
+<div class="highlight"><pre><span></span><code>virtualenv_install(&quot;python_environment&quot;, &quot;matplotlib&quot;)
+</code></pre></div>
+
+<p>You may also want to check what virtual environments are there, and the path to a particular environment. </p>
+<div class="highlight"><pre><span></span><code>virtualenv_list()
+virtualenv_python(&#39;python_environment&#39;)
+</code></pre></div>
+
+<p>To use a environment in your code, include <code>use_virtualenv("python_environment",required = T)</code></p>
+<h3>(3) Matplotlib</h3>
+<p>Unfortunately, not all Matplotlib backends work for reticulate. Make sure you put <code>plt.switch_backend('agg')</code> in your python code.</p>
+<p>When using this backend, some programs may be missing. You need to install them in the terminal.</p>
+<div class="highlight"><pre><span></span><code>$ sudo apt install texlive-fonts-recommended texlive-fonts-extra
+$ sudo apt-get install dvipng
+</code></pre></div>
+
+<p>https://github.com/rstudio/reticulate/issues/470
+https://stackoverflow.com/questions/54477891/filenotfounderror-errno-2-no-such-file-or-directory-latex-latex-python</p>
+<h3>Checking if everything works</h3>
+<p>After loading <strong>reticulate</strong> in R, try running below after typing <code>repl_python()</code>, or as a python code chunk in a R markdown document.</p>
+<div class="highlight"><pre><span></span><code><span class="err">```</span><span class="p">{</span><span class="n">python</span><span class="p">}</span>
+<span class="n">use_python</span><span class="p">(</span><span class="s2">&quot;/usr/bin/python3.5&quot;</span><span class="p">)</span> <span class="c1"># point this to where your python executable is</span>
+<span class="n">use_virtualenv</span><span class="p">(</span><span class="s2">&quot;python_environment&quot;</span><span class="p">,</span><span class="n">required</span> <span class="o">=</span> <span class="n">T</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">switch_backend</span><span class="p">(</span><span class="s1">&#39;agg&#39;</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="kp">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="kp">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="space-1.jpg" src="http://www.storywarren.com/wp-content/uploads/2016/09/space-1.jpg"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: center;">*Centered text*</p>
+
+<p><a href="https://vimeo.com/3514904" title="Little red riding hood - Click to Watch!"><img alt="Little red riding hood" src="http://i.imgur.com/7YTMFQp.png"></a></p>
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+  <!-- Full-width images with number and caption text -->
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 3</div>
+    <img src="https://www.w3schools.com/howto/img_lights_wide.jpg" style="width:100%">
+    <div class="text">Caption Text</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 3</div>
+    <img src="https://www.w3schools.com/howto/img_lights_wide.jpg" style="width:100%">
+    <div class="text">Caption Two</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 3</div>
+    <img src="https://www.w3schools.com/howto/img_lights_wide.jpg" style="width:100%">
+    <div class="text">Caption Three</div>
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<p><br></p>
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+<style>
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+</style>
+            <a href="#" class="go-top">Go Top</a>
+<footer class="footer">
+    <p align="right">&copy; MICHAEL TSO &ndash;
+        Built with <a target="_blank" href="https://github.com/PurePelicanTheme/pure-single">Pure Theme</a>
+        for <a target="_blank" href="http://blog.getpelican.com/">Pelican</a> - Last updated on <a target="_blank" href=>2021-09-17</a>.
+    </p>
+</footer>        </div>
+    </div>
+    </div>
+    <script>
+        var $top = $('.go-top');
+
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $top.fadeIn(200);
+            } else {
+                $top.fadeOut(200);
+            }
+        });
+
+        // Animate the scroll to top
+        $top.click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop: 0}, 300);
+        })
+
+        // Makes sure that the href="#" attached to the <a> elements
+        // don't scroll you back up the page.
+        $('body').on('click', 'a[href="#"]', function(event) {
+            event.preventDefault();
+        });
+    </script>
+
+</body>
+</html>

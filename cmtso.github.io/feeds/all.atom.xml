@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>MICHAEL TSO</title><link href="https://cmtso.github.io/" rel="alternate"></link><link href="https://cmtso.github.io/feeds/all.atom.xml" rel="self"></link><id>https://cmtso.github.io/</id><updated>2021-09-17T15:26:44+01:00</updated><subtitle>A personal blog.</subtitle><entry><title>Write an academic paper in R?</title><link href="https://cmtso.github.io/posts/rticles" rel="alternate"></link><published>2021-09-14T19:01:00+01:00</published><updated>2021-09-17T15:26:44+01:00</updated><author><name>Michael</name></author><id>tag:cmtso.github.io,2021-09-14:/posts/rticles</id><summary type="html">&lt;p&gt;Yes, now you can write entire papers in R and Markdown&lt;/p&gt;</summary><content type="html">&lt;p&gt;R has become a very nice ecosystems that is not limited to programming or analysis but the full web and editing experience. Have you worried that you don't know enough LaTex and Microsoft Word drives you crazy when writing acadmic papers. Well a very nice option is to take advantage of R Markdown and the rticles R package. The latter comes with lots of templates for popular acadmic journals, which essentially turn them into the required LaTex format for you?&lt;/p&gt;
+&lt;h1&gt;What about citations?&lt;/h1&gt;
+&lt;p&gt;You can do &lt;code&gt;@bibkey&lt;/code&gt; as you normally would for citation in LaTex using BibTex. Put all your BibTex entries in a .bib file.&lt;/p&gt;
+&lt;h1&gt;Not just LaTex?&lt;/h1&gt;
+&lt;p&gt;R Markdown utilizes 'pandoc' which means it can turn into other document formats such as HTML, Word and others. A cool use case here is the R Journal web document. R Journal doesn't use a publishing house so it compiles the articles themselves. I can simply compile my article in R markdown with the ouput option &lt;code&gt;rjtools::rjournal_web_article&lt;/code&gt;. See my example &lt;a href="https://cmtso.github.io/RJsandboxweb/sandbox"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h1&gt;What about track changes?&lt;/h1&gt;
+&lt;p&gt;You can make use of the &lt;a href="https://3142.nl/latex-diff/"&gt;online latexdiff tool&lt;/a&gt; if you have two versions of the R-generated LaTex file (.tex). Then you can just run the diff.tex file with the journal latex template. It's probably easiest to run it on &lt;a href="https://www.overleaf.com/"&gt;Overleaf&lt;/a&gt;. Don't forget to define the latexdiff commands in your LaTex files. There's an &lt;a href=""&gt;latexdiffr&lt;/a&gt; package which essentially make this all seamlessly done within R, but I have trouble getting it to work as of today.&lt;/p&gt;</content><category term="Data science"></category><category term="R"></category><category term="LaTex"></category></entry><entry><title>Web browser for JupyterLab</title><link href="https://cmtso.github.io/posts/localhost_jupyter" rel="alternate"></link><published>2020-06-25T19:01:00+01:00</published><updated>2020-06-27T12:23:42+01:00</updated><author><name>Michael</name></author><id>tag:cmtso.github.io,2020-06-25:/posts/localhost_jupyter</id><summary type="html">&lt;p&gt;How to open a web browser tab in Jupyter Lab&lt;/p&gt;</summary><content type="html">&lt;p&gt;Part of my job as a data scientist is to develop web apps. We do our work mostly on collaborative cloud platforms. What if I want to preview my app with a local browser? That's quite straightforward in a local machine, but may be tricky on cloud platforms.&lt;/p&gt;
+&lt;p&gt;Here are a couple ideas of doing in in a cloud-hosted Jupyter Lab notebook.&lt;/p&gt;
+&lt;h1&gt;(1) iframe&lt;/h1&gt;
+&lt;p&gt;JupyterLab support iframes natively. You can try something like as python code:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;IPython.display&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;IFrame&lt;/span&gt;
+&lt;span class="n"&gt;IFrame&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;https://statetag-pbmsdemo.datalabs.ceh.ac.uk/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;width&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;700&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;700&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Note that some websites banned being read as iFrames.&lt;/p&gt;
+&lt;h1&gt;(2) JupyterLab externsions&lt;/h1&gt;
+&lt;h2&gt;&lt;a href="https://github.com/timkpaine/jupyterlab_iframe/"&gt;jupyterlab_iframe&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This one is allows typing in a web address and open it as an iframe.
+&lt;img alt="" src="https://raw.githubusercontent.com/timkpaine/jupyterlab_iframe/master/docs/example1.gif"&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a href="https://github.com/mflevine/jupyterlab_html"&gt;jupyterlab_html&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This one opens HTML webpages. So you will have to save the HTML file locally.&lt;/p&gt;
+&lt;h1&gt;(3) What about opening a PyQt5 GUI in Jupyter Notebook?&lt;/h1&gt;</content><category term="Data science"></category><category term="localhost"></category><category term="JupyterLab"></category></entry><entry><title>Visualizing bird samples with R Shiny and leaflet</title><link href="https://cmtso.github.io/posts/birds1" rel="alternate"></link><published>2020-06-24T19:01:00+01:00</published><updated>2020-06-26T12:24:36+01:00</updated><author><name>Michael</name></author><id>tag:cmtso.github.io,2020-06-24:/posts/birds1</id><summary type="html">&lt;p&gt;An R shiny app to show historical bird locations&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;leaflet&lt;/strong&gt; is a very versatile java script library for interactive maps. It is also a great and free alternative to Google Maps, where many of the advanced APIs are not free. Being hooked to R as a package, it is super easy to use and it's my go-to package when I am producing any maps. One application that is of interest is to show the location of the bird samples we have received through the &lt;a href="https://pbms.ceh.ac.uk/"&gt;UK Predatory Bird Monitoring Scheme&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;At UKCEH, I am working on a R &lt;strong&gt;Shiny&lt;/strong&gt; app that would enable even more customerisation in such interactive maps. This is a quick app that I quickly put together. More development is ongoing to build on this and to give it a lot more analytics capabilities. Stay tuned!&lt;/p&gt;
+&lt;p&gt;Check out the app here:&lt;/p&gt;
+&lt;iframe src="https://statetag-pbmsdemo.datalabs.ceh.ac.uk/" width="100%" height="700" style="border:none;"&gt;
+&lt;/iframe&gt;</content><category term="Data science"></category><category term="shiny"></category><category term="R"></category><category term="leaflet"></category><category term="PBMS"></category></entry><entry><title>Using reticulate: troubleshooting tips</title><link href="https://cmtso.github.io/posts/reticulate-troubleshoot" rel="alternate"></link><published>2020-06-08T10:01:00+01:00</published><updated>2020-06-24T20:46:50+01:00</updated><author><name>Michael</name></author><id>tag:cmtso.github.io,2020-06-08:/posts/reticulate-troubleshoot</id><summary type="html">&lt;p&gt;Troubleshooting tips when using this great R package to run python codes&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;reticulate&lt;/strong&gt; is a R package by RStudio to allow seamless use of python codes in R. Although it works nicely, you may encounter some common issues when setting it up, especially when doing so on a virtual machine.&lt;/p&gt;
+&lt;h3&gt;(1) Sourcing python&lt;/h3&gt;
+&lt;p&gt;The very first thing is to check python is properly installed.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;py_discover_config()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;If &lt;code&gt;libpython&lt;/code&gt; is missing, do this: &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo apt-get install -y r-base python3 python3-dev python3-pip python3-ven python3-tk
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;(2) Installing packages&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;use_python(&amp;quot;/usr/bin/python3.5&amp;quot;) # point this to where your python executable is
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;You can create a virtual environment to install packages, say it's called "python_environment"&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;virtualenv_create&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;python_environment&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; # &lt;span class="nv"&gt;create&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;virtual&lt;/span&gt; &lt;span class="nv"&gt;environment&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;reticulate&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Then you can installed packages&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;virtualenv_install(&amp;quot;python_environment&amp;quot;, &amp;quot;matplotlib&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;You may also want to check what virtual environments are there, and the path to a particular environment. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;virtualenv_list()
+virtualenv_python(&amp;#39;python_environment&amp;#39;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;To use a environment in your code, include &lt;code&gt;use_virtualenv("python_environment",required = T)&lt;/code&gt;&lt;/p&gt;
+&lt;h3&gt;(3) Matplotlib&lt;/h3&gt;
+&lt;p&gt;Unfortunately, not all Matplotlib backends work for reticulate. Make sure you put &lt;code&gt;plt.switch_backend('agg')&lt;/code&gt; in your python code.&lt;/p&gt;
+&lt;p&gt;When using this backend, some programs may be missing. You need to install them in the terminal.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo apt install texlive-fonts-recommended texlive-fonts-extra
+$ sudo apt-get install dvipng
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;https://github.com/rstudio/reticulate/issues/470
+https://stackoverflow.com/questions/54477891/filenotfounderror-errno-2-no-such-file-or-directory-latex-latex-python&lt;/p&gt;
+&lt;h3&gt;Checking if everything works&lt;/h3&gt;
+&lt;p&gt;After loading &lt;strong&gt;reticulate&lt;/strong&gt; in R, try running below after typing &lt;code&gt;repl_python()&lt;/code&gt;, or as a python code chunk in a R markdown document.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;```&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="n"&gt;use_python&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/usr/bin/python3.5&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# point this to where your python executable is&lt;/span&gt;
+&lt;span class="n"&gt;use_virtualenv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;python_environment&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;required&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;switch_backend&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;agg&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="kp"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;2.0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.01&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="kp"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align="center"&gt;&lt;img alt="space-1.jpg" src="http://www.storywarren.com/wp-content/uploads/2016/09/space-1.jpg"&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p style="text-align: center;"&gt;*Centered text*&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://vimeo.com/3514904" title="Little red riding hood - Click to Watch!"&gt;&lt;img alt="Little red riding hood" src="http://i.imgur.com/7YTMFQp.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;!-- Slideshow container --&gt;
+&lt;div class="slideshow-container"&gt;
+
+  &lt;!-- Full-width images with number and caption text --&gt;
+  &lt;div class="mySlides fade"&gt;
+    &lt;div class="numbertext"&gt;1 / 3&lt;/div&gt;
+    &lt;img src="https://www.w3schools.com/howto/img_lights_wide.jpg" style="width:100%"&gt;
+    &lt;div class="text"&gt;Caption Text&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="mySlides fade"&gt;
+    &lt;div class="numbertext"&gt;2 / 3&lt;/div&gt;
+    &lt;img src="https://www.w3schools.com/howto/img_lights_wide.jpg" style="width:100%"&gt;
+    &lt;div class="text"&gt;Caption Two&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="mySlides fade"&gt;
+    &lt;div class="numbertext"&gt;3 / 3&lt;/div&gt;
+    &lt;img src="https://www.w3schools.com/howto/img_lights_wide.jpg" style="width:100%"&gt;
+    &lt;div class="text"&gt;Caption Three&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Next and previous buttons --&gt;
+  &lt;a class="prev" onclick="plusSlides(-1)"&gt;&amp;#10094;&lt;/a&gt;
+  &lt;a class="next" onclick="plusSlides(1)"&gt;&amp;#10095;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;!-- The dots/circles --&gt;
+&lt;div style="text-align:center"&gt;
+  &lt;span class="dot" onclick="currentSlide(1)"&gt;&lt;/span&gt;
+  &lt;span class="dot" onclick="currentSlide(2)"&gt;&lt;/span&gt;
+  &lt;span class="dot" onclick="currentSlide(3)"&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next &amp; previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+&lt;/style&gt;</content><category term="Data science"></category><category term="python"></category><category term="R"></category><category term="reticulate"></category></entry><entry><title>My super title</title><link href="https://cmtso.github.io/posts/my-super-post" rel="alternate"></link><published>2010-10-03T10:20:00+01:00</published><updated>2010-10-04T18:40:00+01:00</updated><author><name>Alexis Metaireau</name></author><id>tag:cmtso.github.io,2010-10-03:/posts/my-super-post</id><summary type="html">&lt;p class="first last"&gt;Short version for index and feeds&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;This is the content of my super blog post.&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;&lt;span class="normal"&gt;1&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Pelican is a static site generator.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;There are two ways to specify the identifier:&lt;/p&gt;
+&lt;blockquote&gt;
+:::python
+print(&amp;quot;The triple-colon syntax will &lt;em&gt;not&lt;/em&gt; show line numbers.&amp;quot;)&lt;/blockquote&gt;
+&lt;p&gt;To display line numbers, use a path-less shebang instead of colons:&lt;/p&gt;
+&lt;blockquote&gt;
+#!python
+print(&amp;quot;The path-less shebang syntax &lt;em&gt;will&lt;/em&gt; show line numbers.&amp;quot;)&lt;/blockquote&gt;
+</content><category term="yeah"></category><category term="thats"></category><category term="awesome"></category></entry></feed>
